@@ -1,7 +1,12 @@
-
 <template>
   <div class="min-h-screen bg-gray-50 text-gray-800">
-    <NavBar @search="searchParams = $event" />
+
+    <!-- Ocultar NavBar cuando la ruta es /login -->
+    <NavBar
+      v-if="$route.name !== 'login'"
+      @search="searchParams = $event"
+    />
+
     <router-view :searchParams="searchParams"></router-view>
   </div>
 </template>
